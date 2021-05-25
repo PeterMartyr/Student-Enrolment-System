@@ -7,6 +7,7 @@ package PeterMartyr.Library.Models;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import java.util.List;
 import java.util.Objects;
@@ -20,21 +21,21 @@ public class Enrollment {
     public static final String BLANK_STRING = "";
     public static final Course NULL_COURSE = null;
 
-    private String dateEnrolled;
+    private Date dateEnrolled;
     private String grade;
     private String semster;
     private List<Course> courses;
 
-    public Enrollment(String semster) {
+    public Enrollment(String semster, Date dateEnrolled) {
 
-        this.dateEnrolled = new SimpleDateFormat("dd/MM/yyy").toString();
+        this.dateEnrolled = dateEnrolled;
         this.grade = BLANK_STRING;
         this.semster = semster;
         this.courses = new ArrayList();
     }
 
     public Enrollment() {
-        this(BLANK_STRING);
+        this(BLANK_STRING, new Date(System.currentTimeMillis()));
     }
 
     public void addCourse(Course course) {
@@ -47,11 +48,11 @@ public class Enrollment {
         }
     } 
 
-    public String getDateEnrolled() {
+    public Date getDateEnrolled() {
         return dateEnrolled;
     }
 
-    public void setDateEnrolled(String dateEnrolled) {
+    public void setDateEnrolled(Date dateEnrolled) {
         this.dateEnrolled = dateEnrolled;
     }
 
@@ -116,5 +117,6 @@ public class Enrollment {
     public String toString() {
         return "Enrollment{" + "dateEnrolled=" + dateEnrolled + ", grade=" + grade + ", semster=" + semster + ", courses=" + courses + '}';
     }
+    
 
 }

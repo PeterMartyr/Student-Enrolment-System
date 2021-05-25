@@ -18,7 +18,7 @@ public class CustomSortingComparator implements Comparator<Student> {
     public int compare(Student s1, Student s2) {
 
         // for comparison 
-        int NameCompare = s1.getName().compareTo(s2.getName());
+        int NameCompare = s1.getName().toUpperCase().compareTo(s2.getName().toUpperCase());
         int IDCompare = s1.getStudentID() - s2.getStudentID();
 
         // 2-level comparison using if-else block 

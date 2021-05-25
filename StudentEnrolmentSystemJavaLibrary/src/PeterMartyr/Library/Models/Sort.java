@@ -5,79 +5,52 @@
  */
 package PeterMartyr.Library.Models;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  *
  * @author 001091501
  */
 public class Sort {
-    
-        public void bubbleSortIntArray_Desc(int[] numbers) {
-        int t;
-        for (int j = 0; j <= numbers.length - 2; j++) {
-            for (int i = 0; i <= numbers.length - 2; i++) {
-                if (numbers[i + 1] > numbers[i]) {
-                    t = numbers[i + 1];
-                    numbers[i + 1] = numbers[i];
-                    numbers[i] = t;
+
+    public void sortStudentByName(List<Student> students) {
+        Student temp;
+        for (int j = 0; j <= students.size() - 2; j++) {
+            for (int i = 0; i <= students.size() - 2; i++) {
+                if (students.get(i).getName().compareTo(students.get(i + 1).getName()) > 0) {
+                    temp = students.get(i + 1);
+                    students.set(i + 1, students.get(i));
+                    students.set(i, temp);
                 }
             }
         }
     }
 
-    public void bubbleSortIntArray_Asc(int[] numbers) {
-        int t;
-        for (int j = 0; j < numbers.length; j++) {
-            for (int i = 0; i < numbers.length - 1; i++) {
-                if (numbers[i] > numbers[i + 1]) {
-                    t = numbers[i + 1];
-                    numbers[i + 1] = numbers[i];
-                    numbers[i] = t;
+    public void sortCoursesByName(List<Course> courses) {
+        Course temp;
+        for (int j = 0; j <= courses.size() - 2; j++) {
+            for (int i = 0; i <= courses.size() - 2; i++) {
+                if (courses.get(i).getCourseName().compareTo(courses.get(i + 1).getCourseName()) > 0) {
+                    temp = courses.get(i + 1);
+                    courses.set(i + 1, courses.get(i));
+                    courses.set(i, temp);
                 }
             }
         }
     }
 
-    public void bubbleSortStringArray_Asc(String[] stringArray) {
-        String t;
-
-        for (int j = 0; j <= stringArray.length - 2; j++) {
-            for (int i = 0; i <= stringArray.length - 2; i++) {
-                if (stringArray[i].compareTo(stringArray[i + 1]) > 0) {
-                    t = stringArray[i + 1];
-                    stringArray[i + 1] = stringArray[i];
-                    stringArray[i] = t;
+    public void sortEnrollmentsByDate(List<Enrollment> enrollments) {
+        Enrollment temp;
+        for (int j = 0; j <= enrollments.size() - 2; j++) {
+            for (int i = 0; i <= enrollments.size() - 2; i++) {
+                if (enrollments.get(i).getDateEnrolled().compareTo(enrollments.get(i + 1).getDateEnrolled()) > 0) {
+                    temp = enrollments.get(i + 1);
+                    enrollments.set(i + 1, enrollments.get(i));
+                    enrollments.set(i, temp);
                 }
             }
         }
     }
-
-    public void bubbleSortStringArray_Desc(String[] stringArray) {
-        String t;
-        for (int j = 0; j <= stringArray.length - 2; j++) {
-            for (int i = 0; i <= stringArray.length - 2; i++) {
-                if (stringArray[i + 1].compareTo(stringArray[i]) > 0) {
-                    t = stringArray[i + 1];
-                    stringArray[i + 1] = stringArray[i];
-                    stringArray[i] = t;
-                }
-            }
-        }
-    }
-
-    public void selectionSortInt(int[] intArray) {
-
-        int tmp, min_Key;
-        for (int j = 0; j < intArray.length - 1; j++) {
-            min_Key = j;
-            for (int k = j + 1; k < intArray.length; k++) {
-                if (intArray[k] < intArray[min_Key]) {
-                    min_Key = k;
-                }
-            }
-            tmp = intArray[min_Key];
-            intArray[min_Key] = intArray[j];
-            intArray[j] = tmp;
-        }
-    }
-    
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Compare;
+package PeterMartyr.Library.Models;
 
 import PeterMartyr.Library.Models.Course;
 import java.util.Comparator;
@@ -16,6 +16,6 @@ public class SortByCourseName implements Comparator<Course>{
     
     public int compare(Course x, Course y)
     {
-        return x.getCourseName().compareTo(y.getCourseName());
+        return x.getCourseName().toUpperCase().compareTo(y.getCourseName().toUpperCase());
     } 
 }
