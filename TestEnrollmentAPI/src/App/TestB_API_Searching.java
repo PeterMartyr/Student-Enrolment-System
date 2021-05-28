@@ -37,11 +37,7 @@ public class TestB_API_Searching {
         
         System.out.println(student.toString());
         
-        
-       
-        
         System.out.println("\n\nSearching for Course 5CEP 3 expect to work");
-         System.out.println("Also testing lower case compare to ignore case");
         Course course = search.getCourseByCode(courses, "5cep");
         
         System.out.println(course.toString());

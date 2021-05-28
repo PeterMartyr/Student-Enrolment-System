@@ -12,7 +12,7 @@ import java.util.Objects;
  * @author 001091501
  */
 public class Address {
-    
+
     public static final String BLANK_STRING = "";
 
     private String number;
@@ -21,6 +21,14 @@ public class Address {
     private String postcode;
     private String state;
 
+    /**
+     *
+     * @param number
+     * @param street
+     * @param suburb
+     * @param postcode
+     * @param state
+     */
     public Address(String number, String street, String suburb, String postcode, String state) {
         this.number = number;
         this.street = street;
@@ -29,6 +37,9 @@ public class Address {
         this.state = state;
     }
 
+    /**
+     *
+     */
     public Address() {
         this(BLANK_STRING, BLANK_STRING, BLANK_STRING, BLANK_STRING, BLANK_STRING);
     }
@@ -69,6 +80,10 @@ public class Address {
         return state;
     }
 
+    /**
+     *
+     * @param state
+     */
     public void setState(String state) {
         this.state = state;
     }
@@ -83,6 +98,12 @@ public class Address {
         hash = 29 * hash + Objects.hashCode(this.state);
         return hash;
     }
+
+    /**
+     *
+     * @param obj to compare
+     * @return true or false
+     */
 
     @Override
     public boolean equals(Object obj) {
@@ -114,11 +135,13 @@ public class Address {
         return true;
     }
 
+    /**
+     *
+     * @return a descriptive string of the object
+     */
     @Override
     public String toString() {
         return "Address{" + "number=" + number + ", street=" + street + ", suburb=" + suburb + ", postcode=" + postcode + ", state=" + state + '}';
     }
-    
-    
 
 }
