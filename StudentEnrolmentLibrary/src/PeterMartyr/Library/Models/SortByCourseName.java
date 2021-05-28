@@ -5,16 +5,17 @@
  */
 package PeterMartyr.Library.Models;
 
-import PeterMartyr.Library.Models.Student;
+import PeterMartyr.Library.Models.Course;
 import java.util.Comparator;
 
 /**
  *
  * @author PeterMartyr
  */
-public class SortByStudentName implements Comparator<Student>{
-    public int compare(Student x, Student y)
+public class SortByCourseName implements Comparator<Course>{
+    
+    public int compare(Course x, Course y)
     {
-        return x.getName().toUpperCase().compareTo(y.getName().toUpperCase());
+        return x.getCourseName().compareToIgnoreCase(y.getCourseName());
     } 
 }

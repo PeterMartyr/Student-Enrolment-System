@@ -16,7 +16,7 @@ import java.util.Objects;
  *
  * @author 001091501
  */
-public class Enrollment {
+public class Enrollment implements Comparable<Enrollment> {
 
     public static final String BLANK_STRING = "";
     public static final Course NULL_COURSE = null;
@@ -27,7 +27,7 @@ public class Enrollment {
     private List<Course> courses;
 
     public Enrollment(String semster, Date dateEnrolled) {
-
+        super();
         this.dateEnrolled = dateEnrolled;
         this.grade = BLANK_STRING;
         this.semster = semster;
@@ -41,12 +41,12 @@ public class Enrollment {
     public void addCourse(Course course) {
         courses.add(course);
     }
-    
-    public void addCourses(List<Course> courses){
+
+    public void addCourses(List<Course> courses) {
         for (Course course : courses) {
             this.courses.add(course);
         }
-    } 
+    }
 
     public Date getDateEnrolled() {
         return dateEnrolled;
@@ -114,9 +114,13 @@ public class Enrollment {
     }
 
     @Override
+    public int compareTo(Enrollment other) {
+        return this.dateEnrolled.compareTo(other.getDateEnrolled());
+    }
+
+    @Override
     public String toString() {
         return "Enrollment{" + "dateEnrolled=" + dateEnrolled + ", grade=" + grade + ", semster=" + semster + ", courses=" + courses + '}';
     }
-    
 
 }

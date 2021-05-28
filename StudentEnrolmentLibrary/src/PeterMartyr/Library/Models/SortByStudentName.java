@@ -12,10 +12,9 @@ import java.util.Comparator;
  *
  * @author PeterMartyr
  */
-public class SortByStudentId implements Comparator<Student>
-{
+public class SortByStudentName implements Comparator<Student>{
     public int compare(Student x, Student y)
     {
-        return x.getStudentID() - y.getStudentID();
+        return x.getName().compareToIgnoreCase(y.getName());
     } 
 }

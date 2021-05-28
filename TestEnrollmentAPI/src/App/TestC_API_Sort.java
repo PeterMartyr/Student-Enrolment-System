@@ -32,7 +32,7 @@ public class TestC_API_Sort {
 
         List<Course> courses = testStub.getCourses();
 
-        List<Enrollment> enrollments = testStub.getEnrollments();
+        List<Enrollment> enrollments = testStub.getEnrollments(0);
 
         Sort sort = new Sort();
 

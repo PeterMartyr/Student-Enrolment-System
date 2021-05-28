@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author 001091501
  */
-public class Course {
+public class Course implements Comparable<Course> {
 
     public static final String BLANK_STRING = "";
     public static final double ZERO_DOUBLE = 0.0;
@@ -25,10 +25,9 @@ public class Course {
         this.courseName = courseName;
         this.cost = cost;
     }
-    
 
     public Course() {
-        this(BLANK_STRING,BLANK_STRING,ZERO_DOUBLE);
+        this(BLANK_STRING, BLANK_STRING, ZERO_DOUBLE);
     }
 
     public String getCourseCode() {
@@ -89,11 +88,13 @@ public class Course {
     }
 
     @Override
+    public int compareTo(Course other) {
+        return this.courseCode.compareToIgnoreCase(other.courseCode);
+    }
+
+    @Override
     public String toString() {
         return "Course{" + "courseCode=" + courseCode + ", courseName=" + courseName + ", cost=" + cost + '}';
     }
-    
-    
-    
 
 }

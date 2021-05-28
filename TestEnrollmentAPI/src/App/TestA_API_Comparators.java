@@ -8,7 +8,6 @@ package App;
 import PeterMartyr.Library.Models.Course;
 import PeterMartyr.Library.Models.Enrollment;
 import PeterMartyr.Library.Models.SortByCourseName;
-import PeterMartyr.Library.Models.SortByStudentId;
 import PeterMartyr.Library.Models.SortByStudentName;
 import PeterMartyr.Library.Models.Student;
 import TestData.TestStub;
@@ -29,51 +28,71 @@ public class TestA_API_Comparators {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+
         TestStub testStub = new TestStub();
-        
-        List<Course> courses = testStub.getCourses();
 
         List<Student> students = testStub.getStudents();
-
-      
+        List<Course> courses = testStub.getCourses();
+        List<Enrollment> enrollments = testStub.getEnrollments(0);
 
         System.out.println("========================");
         System.out.println("Lists=================");
         System.out.println("========================");
 
         //Before Sorting
-        System.out.println("\nBefore Sorting...");
-        for (Student s : students) {
-            System.out.println(s.getName());
+        System.out.println("\nStudents Before Sorting===========================");
+        for (Student student : students) {
+            System.out.println(student.getStudentID() + " " + student.getName());
         }
 
-        System.out.println("\nReverse Order");
-        Collections.sort(students, Collections.reverseOrder());
-        //After sorting by Id and reversing
-        for (Student s : students) {
-            System.out.println(s);
-        }
-
-        Collections.sort(students, new SortByStudentId());
+        Collections.sort(students);
 
         System.out.println("\nSorted by ID");
         for (Student student : students) {
-            System.out.println(student.getStudentID());
+            System.out.println(student.getStudentID() + " " + student.getName());
         }
 
         Collections.sort(students, new SortByStudentName());
 
         System.out.println("\nSorted by name");
         for (Student student : students) {
-            System.out.println(student.getName());
+            System.out.println(student.getStudentID() + " " + student.getName());
+        }
+
+        //Before Sorting
+        System.out.println("\nCourses Before Sorting==========================");
+        for (Course course : courses) {
+            System.out.println(course.getCourseCode() + " " + course.getCourseName());
+        }
+
+        Collections.sort(courses);
+
+        System.out.println("\nSorted by Course Code");
+        for (Course course : courses) {
+            System.out.println(course.getCourseCode() + " " + course.getCourseName());
         }
 
         Collections.sort(courses, new SortByCourseName());
 
         System.out.println("\nSorted by Course name");
         for (Course course : courses) {
-            System.out.println(course.getCourseName());
+            System.out.println(course.getCourseCode() + " " + course.getCourseName());
+        }
+
+        //Before Sorting
+        System.out.println("\nEnrolments Before Sorting==========================");
+
+//        System.out.println("Size " + students.get(0).getEnrollments().size());
+//        System.out.println("Size " + enrollments.size());
+        for (Enrollment enrolment : enrollments) {
+            System.out.println(enrolment.getDateEnrolled().toString());
+        }
+
+        Collections.sort(enrollments);
+
+        System.out.println("\nSorted by Date Enrolled");
+        for (Enrollment enrolment : enrollments) {
+            System.out.println(enrolment.getDateEnrolled());
         }
 
         System.out.println("\n========================");
@@ -94,22 +113,15 @@ public class TestA_API_Comparators {
 
         List<Course> courseList = new ArrayList(courses_Set);
 
-        Collections.sort(courseList, new SortByCourseName());
+        Collections.sort(courseList);
 
         courses_Set = new LinkedHashSet<>(courseList);
 
-        System.out.println("\nCourse name SET sorted");
+        System.out.println("\nCourse Code SET sorted");
         for (Course course : courses_Set) {
             System.out.println(course.getCourseName());
         }
 
-        /*
-        Comment:: seriously there no support for HashSets Sorting? 
-        I need to turn it into a list that I already proved works and 
-        turn it back into a HashSet??
-        
-         I am so done proving the obvious
-         */
         String message = "\n\nComment:: seriously there no support for HashSets Sorting? \n"
                 + "        I need to turn it into a list that I already proved works and \n"
                 + "        turn it back into a HashSet??\n"
@@ -118,5 +130,4 @@ public class TestA_API_Comparators {
 
         System.out.println(message);
     }
-
 }

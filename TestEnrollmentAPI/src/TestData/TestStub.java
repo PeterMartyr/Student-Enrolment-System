@@ -11,6 +11,7 @@ import PeterMartyr.Library.Models.Student;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -24,13 +25,10 @@ public class TestStub {
 
     private List<Student> students;
 
-    private List<Enrollment> enrollments;
-
     public TestStub() {
         super();
         courses = new ArrayList();
         students = new ArrayList();
-        enrollments = new ArrayList();
         onInit();
     }
 
@@ -42,8 +40,10 @@ public class TestStub {
         return students;
     }
 
-    public List<Enrollment> getEnrollments() {
-        return students.get(0).getEnrollments();
+    public List<Enrollment> getEnrollments(int index) {
+//         System.out.println(" on getEnrollments=============================================================================");
+//        System.out.println("Size of enrol " + students.get(index).getEnrollments().size());
+        return students.get(index).getEnrollments();
     }
 
     private void onInit() {
@@ -66,19 +66,32 @@ public class TestStub {
                 new Student("Software Delevepment", "Anne Deeme", "AD@Yahoo.com", "234567"));
         students.add(
                 new Student("Software Delevepment", "Sam Brown", "SB@live.com", "9876544"));
+        
+        this.students = reverseList(students);
 
         students.get(0).addEnrollment("Semester 1", convertStringtoDate("01-02-2019"));
         students.get(0).addEnrollment("Semester 1", convertStringtoDate("01-02-2018"));
         students.get(0).addEnrollment("Semester 1", convertStringtoDate("01-02-2017"));
+ 
+//        this.students = reverseList(students);
+//        System.out.println(" on init=============================================================================");
+//        System.out.println("Size of enrol " + students.get(0).getEnrollments().size());
+         
     }
 
-    private Date convertStringtoDate(String ddMMyyyy) {
+    private static Date convertStringtoDate(String ddMMyyyy) {
         try {
             return new SimpleDateFormat("dd-M-yyyy").parse(ddMMyyyy);
         } catch (ParseException e) {
             e.printStackTrace();
         }
         return new Date();
+    }
+
+    private static <T> List<T> reverseList(List<T> list) {
+        List<T> reverse = new ArrayList<>(list);
+        Collections.reverse(reverse);
+        return reverse;
     }
 
 }
