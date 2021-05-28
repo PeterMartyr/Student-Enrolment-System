@@ -2,6 +2,7 @@ package PeterMartyr.Library.Models;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /*
@@ -15,42 +16,45 @@ import java.util.List;
  */
 public class Search {
 
-    public int linearSearchOfInt (int[] intArray, int number) {
-        int index = 0;
-        while (index < intArray.length) {
-            if (intArray[index] == number) {
-                return index;
+    public Student getStudentbyID(List<Student> students, int studentID) {
+
+        for (Student student : students) {
+            if (student.getStudentID() == studentID) {
+                return student;
             }
-            index++;
         }
-        return -1;
+
+        return new Student();
     }
 
-    public int linearSearchOfString (String[] stringArray, String text) {
-        int index = 0;
-        while (index < stringArray.length) {
-            if (stringArray[index].equals(text)) {
-                return index;
+    public Course getCourseByCode(List<Course> courses, String courseCode) {
+
+        courseCode = courseCode.toUpperCase();
+        for (Course course : courses) {
+            if (courseCode.equals(course.getCourseCode().toUpperCase())) {
+                return course;
             }
-            index++;
         }
-        return -1;
+        return new Course();
     }
 
-    public int binarySeachOfStringArray(String[] array, String text) {
+    public Course getCourseByCodeBinary(List<Course> courses, String courseCode) {
 
-        Arrays.sort(array); // lol
-
-        int result = -1;
+        Collections.sort(courses); 
+        
+        courseCode = courseCode.toUpperCase();
+        Course course;
+        String code;
         int min = 0;
-        int N = array.length;
+        int N = courses.size();
         int max = N - 1;
         do {
             int mid = (min + max) / 2;
-            if (text.equals(array[mid])) {
-                result = mid;
-                break;
-            } else if (text.compareTo(array[mid]) > 0) {
+            course = courses.get(mid);
+            code = course.getCourseCode().toUpperCase();
+            if (code.equals(courseCode)) {
+                return course;
+            } else if (code.compareTo(courseCode) < 0) {
                 min = mid + 1;
             } else {
                 max = mid - 1;
@@ -59,6 +63,6 @@ public class Search {
                 break;
             }
         } while (min <= max);
-        return result;
+        return new Course();
     }
 }

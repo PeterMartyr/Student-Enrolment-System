@@ -31,6 +31,26 @@ public class TestB_API_Searching {
         List<Enrollment> enrollments = testStub.getEnrollments(0);
 
         Search search = new Search();
+        
+        System.out.println("Searching for Student with StudentID 3 expect it to work");
+        Student student = search.getStudentbyID(students, 3);
+        
+        System.out.println(student.toString());
+        
+        
+       
+        
+        System.out.println("\n\nSearching for Course 5CEP 3 expect to work");
+         System.out.println("Also testing lower case compare to ignore case");
+        Course course = search.getCourseByCode(courses, "5cep");
+        
+        System.out.println(course.toString());
+        
+        System.out.println("\n\nSearching for Course 4jab 3 expect to work");
+       
+        course = search.getCourseByCodeBinary(courses, "4jab");
+        
+        System.out.println(course.toString());
 
     }
 
