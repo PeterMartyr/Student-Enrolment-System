@@ -10,9 +10,8 @@ import PeterMartyr.Library.Models.Enrollment;
 import PeterMartyr.Library.Models.Student;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -27,8 +26,8 @@ public class TestStub {
 
     public TestStub() {
         super();
-        courses = new ArrayList();
-        students = new ArrayList();
+        courses = new LinkedList();
+        students = new LinkedList();
         onInit();
     }
 
@@ -41,8 +40,6 @@ public class TestStub {
     }
 
     public List<Enrollment> getEnrollments(int index) {
-//         System.out.println(" on getEnrollments=============================================================================");
-//        System.out.println("Size of enrol " + students.get(index).getEnrollments().size());
         return students.get(index).getEnrollments();
     }
 
@@ -58,40 +55,45 @@ public class TestStub {
                 new Course("5CEP", "Copyright and Ethics", 300.00));
 
         students.add(
-                new Student("Software Delevepment", "Sue Jone", "SJ@gmail.com", "951478"));
+                new Student("Software Delevepment", convertStringtoDate("25-02-2012"), "Sue Jone", "SJ@gmail.com", "951478"));
 
         students.add(
-                new Student("Software Delevepment", "John Smith", "JS@hotmail.com", "123456"));
-        students.add(
-                new Student("Software Delevepment", "Anne Deeme", "AD@Yahoo.com", "234567"));
-        students.add(
-                new Student("Software Delevepment", "Sam Brown", "SB@live.com", "9876544"));
+                new Student("Software Delevepment", convertStringtoDate("25-02-2015"), "John Smith", "JS@hotmail.com", "123456"));
         
-        this.students = reverseList(students);
+        students.add(
+                new Student("digital media", convertStringtoDate("25-05-2012"), "aarron clark", "AA@live.com", "9876544"));
+        students.add(
+                new Student("Software Delevepment", convertStringtoDate("22-02-2012"), "Anne Deeme", "AD@Yahoo.com", "234567"));
+        students.add(
+                new Student("Software Delevepment", convertStringtoDate("01-03-2014"), "Sam Brown", "SB@live.com", "9876544"));
+        
+        sortStudentListDescByID();
 
         students.get(0).addEnrollment("Semester 1", convertStringtoDate("01-02-2019"));
         students.get(0).addEnrollment("Semester 1", convertStringtoDate("01-02-2018"));
         students.get(0).addEnrollment("Semester 1", convertStringtoDate("01-02-2017"));
- 
-//        this.students = reverseList(students);
-//        System.out.println(" on init=============================================================================");
-//        System.out.println("Size of enrol " + students.get(0).getEnrollments().size());
-         
     }
 
     private static Date convertStringtoDate(String ddMMyyyy) {
         try {
-            return new SimpleDateFormat("dd-M-yyyy").parse(ddMMyyyy);
+            return new SimpleDateFormat("dd-MM-yyyy").parse(ddMMyyyy);
         } catch (ParseException e) {
             e.printStackTrace();
         }
         return new Date();
     }
 
-    private static <T> List<T> reverseList(List<T> list) {
-        List<T> reverse = new ArrayList<>(list);
-        Collections.reverse(reverse);
-        return reverse;
+    
+    public void sortStudentListDescByID() {
+        Student temp;
+        for (int j = 0; j <= students.size() - 1; j++) {
+            for (int i = 0; i <= students.size() - 2; i++) {
+                if (students.get(i + 1).getStudentID() > students.get(i).getStudentID()) {
+                    temp = students.get(i + 1);
+                    students.set(i + 1, students.get(i));
+                    students.set(i, temp);
+                }
+            }
+        }
     }
-
 }

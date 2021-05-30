@@ -16,6 +16,12 @@ import java.util.List;
  */
 public class Search {
 
+    /**
+     *
+     * @param students
+     * @param studentID
+     * @return
+     */
     public Student getStudentbyID(List<Student> students, int studentID) {
 
         for (Student student : students) {
@@ -27,9 +33,15 @@ public class Search {
         return new Student();
     }
 
+    /**
+     *
+     * @param courses
+     * @param courseCode
+     * @return
+     */
     public Course getCourseByCode(List<Course> courses, String courseCode) {
 
-        courseCode = courseCode.toUpperCase();
+        courseCode = courseCode;//.toUpperCase();
         for (Course course : courses) {
             if (courseCode.equals(course.getCourseCode().toUpperCase())) {
                 return course;
@@ -38,10 +50,16 @@ public class Search {
         return new Course();
     }
 
+    /**
+     *
+     * @param courses
+     * @param courseCode
+     * @return
+     */
     public Course getCourseByCodeBinary(List<Course> courses, String courseCode) {
 
-        Collections.sort(courses); 
-        
+        Collections.sort(courses);
+
         courseCode = courseCode.toUpperCase();
         Course course;
         String code;

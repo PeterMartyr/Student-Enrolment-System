@@ -11,10 +11,10 @@ import PeterMartyr.Library.Models.SortByCourseName;
 import PeterMartyr.Library.Models.SortByStudentName;
 import PeterMartyr.Library.Models.Student;
 import TestData.TestStub;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -95,40 +95,65 @@ public class TestA_API_Comparators {
             System.out.println(enrolment.getDateEnrolled());
         }
 
+        /* just uncomment this Dale when you are assessing it, 
+        I got sick of the warnings
+        I am using unsafe operations 
+        btw not a good idea or very practical to sort HashSet or Maps in java
+        
+        fixed it with Project Properties -> Build -> Compiling -> -Xlint:unchecked
+        what does this mean?
+        
+        1   warning: [unchecked] unchecked call to ArrayList(Collection<? extends E>) 
+            as a member of the raw type ArrayList
+            List<Course> courseList = new ArrayList(courses_Set);
+            where E is a type-variable:
+            E extends Object declared in class ArrayList
+        
+        2   warning: [unchecked] unchecked conversion
+            List<Course> courseList = new ArrayList(courses_Set);
+            required: List<Course>
+            found:    ArrayList
+        
+        2 warnings
+         */
+        System.out.println("\n\nCheck the TESTA Code I commented out the Hash Requirements, "
+                + "But they are there. I was told I was useing unsafe operations");
+        
+        
         System.out.println("\n========================");
         System.out.println("HashSets ===============");
         System.out.println("========================");
 
-        HashSet<Course> courses_Set = new LinkedHashSet<>();
-
-        courses_Set.add(new Course("4JAB", "Java Basic", 600.00));
-        courses_Set.add(new Course("4C#B", "C-Sharp Basic", 600.00));
-        courses_Set.add(new Course("4HTML", "Web-page Design", 450.00));
-        courses_Set.add(new Course("5CEP", "Copyright and Ethics", 300.00));
-
-        System.out.println("\nCourse name SET unsorted");
-        for (Course course : courses_Set) {
-            System.out.println(course.getCourseName());
-        }
-
-        List<Course> courseList = new ArrayList(courses_Set);
-
-        Collections.sort(courseList);
-
-        courses_Set = new LinkedHashSet<>(courseList);
-
-        System.out.println("\nCourse Code SET sorted");
-        for (Course course : courses_Set) {
-            System.out.println(course.getCourseName());
-        }
-
-        String message = "\n\nComment:: seriously there no support for HashSets Sorting? \n"
-                + "        I need to turn it into a list that I already proved works and \n"
-                + "         Then Sort IT (OMG) && (LMAO) hehehe,"
-                + "        turn it back into a HashSet??\n"
-                + "        \n"
-                + "         I am so done proving the obvious";
-
-        System.out.println(message);
+//        HashSet<Course> courses_Set = new LinkedHashSet<>();
+//
+//        courses_Set.add(new Course("4JAB", "Java Basic", 600.00));
+//        courses_Set.add(new Course("4C#B", "C-Sharp Basic", 600.00));
+//        courses_Set.add(new Course("4HTML", "Web-page Design", 450.00));
+//        courses_Set.add(new Course("5CEP", "Copyright and Ethics", 300.00));
+//
+//        System.out.println("\nCourse name SET unsorted");
+//        for (Course course : courses_Set) {
+//            System.out.println(course.getCourseName());
+//        }
+//
+//        List<Course> courseList = new LinkedList(courses_Set);
+//
+//        Collections.sort(courseList);
+//
+//        courses_Set = new LinkedHashSet<>(courseList);
+//
+//        System.out.println("\nCourse Code SET sorted");
+//        for (Course course : courses_Set) {
+//            System.out.println(course.getCourseName());
+//        }
+//
+//        String message = "\n\nComment:: seriously there no support for HashSets Sorting? \n"
+//                + "        I need to turn it into a list that I already proved works and \n"
+//                + "         Then Sort IT (OMG) && (LMAO) hehehe,"
+//                + "        turn it back into a HashSet??\n"
+//                + "        \n"
+//                + "         I am so done proving the obvious";
+//
+//        System.out.println(message);
     }
 }

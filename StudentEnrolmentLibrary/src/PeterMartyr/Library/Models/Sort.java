@@ -14,6 +14,13 @@ import java.util.Map;
  * @author 001091501
  */
 public class Sort {
+    
+    /**
+     * does not duplicate the List to save memory but sorts the 
+     * actual List by Student ID  Ascending.
+     * 
+     * @param students the list to sort
+     */
 
     public void sortStudentByName(List<Student> students) {
         Student temp;
@@ -27,6 +34,13 @@ public class Sort {
             }
         }
     }
+    
+    /**
+     * does not duplicate the List to save memory but sorts the 
+     * actual List by the Course Code Ascending.
+     * 
+     * @param courses the list to sort
+     */
 
     public void sortCoursesByName(List<Course> courses) {
         Course temp;
@@ -40,7 +54,12 @@ public class Sort {
             }
         }
     }
-
+    /**
+     * does not duplicate the List to save memory but sorts the 
+     * actual List by Date Ascending.
+     * 
+     * @param enrollments the list to sort
+     */
     public void sortEnrollmentsByDate(List<Enrollment> enrollments) {
         Enrollment temp;
         for (int j = 0; j <= enrollments.size() - 2; j++) {

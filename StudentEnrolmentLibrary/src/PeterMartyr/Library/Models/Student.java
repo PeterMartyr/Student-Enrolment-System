@@ -15,36 +15,45 @@ import java.util.Objects;
  *
  * @author 001091501
  */
-public class Student  extends Person implements Comparable<Student>  {
+public class Student extends Person implements Comparable<Student> {
 
-    public static final String BLANK_STRING = "";
-    private static int numberOfStudents  = 0;
+    /**
+     * a empty string to use in the no args constructor
+     * to save memory
+     */
+    public static final String DEFAULT_TEXT = "";
+    private static int numberOfStudents = 0;
 
     private int studentID;
     private String program;
-    private String dateRegistered;
+    private Date dateRegistered;
     private List<Enrollment> enrollments;
 
-    public Student(String program, String name, String email, String telNum) {
+    public Student(String program, Date dateRegistered, 
+            String name, String email, String telNum) {
         super(name, email, telNum);
         this.studentID = ++numberOfStudents;
         this.program = program;
-        this.dateRegistered  = new SimpleDateFormat("dd/MM/yyy").toString();
+        this.dateRegistered = dateRegistered;
         enrollments = new ArrayList();
     }
 
     public Student() {
-        this(BLANK_STRING,BLANK_STRING,BLANK_STRING,BLANK_STRING);
+        this(DEFAULT_TEXT, new Date(System.currentTimeMillis()), DEFAULT_TEXT, DEFAULT_TEXT, DEFAULT_TEXT);
     }
-    
-    public void addEnrollment (String semster, Date dateEnrolled){
-        enrollments.add(new Enrollment (semster, dateEnrolled));
+
+    public void addEnrollment(String semster, Date dateEnrolled) {
+        enrollments.add(new Enrollment(semster, dateEnrolled));
     }
-    
+
     public int getStudentID() {
         return studentID;
     }
-    
+
+    public void setStudentID(int studentID) {
+        this.studentID = studentID;
+    }
+
     public String getProgram() {
         return program;
     }
@@ -53,12 +62,20 @@ public class Student  extends Person implements Comparable<Student>  {
         this.program = program;
     }
 
-    public String getDateRegistered() {
+    public Date getDateRegistered() {
         return dateRegistered;
+    }
+
+    public void setDateRegistered(Date dateRegistered) {
+        this.dateRegistered = dateRegistered;
     }
 
     public List<Enrollment> getEnrollments() {
         return enrollments;
+    }
+
+    public void setEnrollments(List<Enrollment> enrollments) {
+        this.enrollments = enrollments;
     }
 
     @Override
@@ -93,12 +110,10 @@ public class Student  extends Person implements Comparable<Student>  {
     public String toString() {
         return "Student{" + "studentID=" + studentID + ", program=" + program + ", dateRegistered=" + dateRegistered + ", enrollments=" + enrollments + '}';
     }
-    
+
     @Override
-     public int compareTo(Student other )
-    {
-         return this.studentID - other.studentID;
+    public int compareTo(Student other) {
+        return this.studentID - other.studentID;
     }
 
-   
 }
