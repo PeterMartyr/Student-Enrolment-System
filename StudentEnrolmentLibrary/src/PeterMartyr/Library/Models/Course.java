@@ -114,7 +114,7 @@ public class Course implements Comparable<Course> {
      */
     @Override
     public int compareTo(Course other) {
-        return this.courseCode.compareToIgnoreCase(other.courseCode);
+        return this.courseCode.toUpperCase().compareTo(other.courseCode.toUpperCase());
     }
 
     /**

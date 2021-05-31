@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package App;
+package Test_App;
 
 import PeterMartyr.Library.Models.Course;
 import PeterMartyr.Library.Models.Enrollment;
 import PeterMartyr.Library.Models.SortByCourseName;
 import PeterMartyr.Library.Models.SortByStudentName;
 import PeterMartyr.Library.Models.Student;
-import TestData.TestStub;
+import Test_Stub.TestStub;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -21,7 +21,7 @@ import java.util.List;
  *
  * @author 001091501
  */
-public class TestA_API_Comparators {
+public class TestA_Comparators {
 
     /**
      * @param args the command line arguments
@@ -30,11 +30,11 @@ public class TestA_API_Comparators {
         // TODO code application logic here
 
         TestStub testStub = new TestStub();
-
+        
         List<Student> students = testStub.getStudents();
         List<Course> courses = testStub.getCourses();
         List<Enrollment> enrollments = testStub.getEnrollments(0);
-
+        
         System.out.println("========================");
         System.out.println("Lists=================");
         System.out.println("========================");
@@ -44,16 +44,16 @@ public class TestA_API_Comparators {
         for (Student student : students) {
             System.out.println(student.getStudentID() + " " + student.getName());
         }
-
+        
         Collections.sort(students);
-
+        
         System.out.println("\nSorted by ID");
         for (Student student : students) {
             System.out.println(student.getStudentID() + " " + student.getName());
         }
-
+        
         Collections.sort(students, new SortByStudentName());
-
+        
         System.out.println("\nSorted by name");
         for (Student student : students) {
             System.out.println(student.getStudentID() + " " + student.getName());
@@ -64,16 +64,16 @@ public class TestA_API_Comparators {
         for (Course course : courses) {
             System.out.println(course.getCourseCode() + " " + course.getCourseName());
         }
-
+        
         Collections.sort(courses);
-
+        
         System.out.println("\nSorted by Course Code");
         for (Course course : courses) {
             System.out.println(course.getCourseCode() + " " + course.getCourseName());
         }
-
+        
         Collections.sort(courses, new SortByCourseName());
-
+        
         System.out.println("\nSorted by Course name");
         for (Course course : courses) {
             System.out.println(course.getCourseCode() + " " + course.getCourseName());
@@ -87,76 +87,58 @@ public class TestA_API_Comparators {
         for (Enrollment enrolment : enrollments) {
             System.out.println(enrolment.getDateEnrolled().toString());
         }
-
+        
         Collections.sort(enrollments);
-
+        
         System.out.println("\nSorted by Date Enrolled");
         for (Enrollment enrolment : enrollments) {
             System.out.println(enrolment.getDateEnrolled());
         }
-
-        /* just uncomment this Dale when you are assessing it, 
-        I got sick of the warnings
-        I am using unsafe operations 
-        btw not a good idea or very practical to sort HashSet or Maps in java
-        
-        fixed it with Project Properties -> Build -> Compiling -> -Xlint:unchecked
-        what does this mean?
-        
-        1   warning: [unchecked] unchecked call to ArrayList(Collection<? extends E>) 
-            as a member of the raw type ArrayList
-            List<Course> courseList = new ArrayList(courses_Set);
-            where E is a type-variable:
-            E extends Object declared in class ArrayList
-        
-        2   warning: [unchecked] unchecked conversion
-            List<Course> courseList = new ArrayList(courses_Set);
-            required: List<Course>
-            found:    ArrayList
-        
-        2 warnings
-         */
-        System.out.println("\n\nCheck the TESTA Code I commented out the Hash Requirements, "
-                + "But they are there. I was told I was useing unsafe operations");
-        
         
         System.out.println("\n========================");
         System.out.println("HashSets ===============");
         System.out.println("========================");
-
+        
         HashSet<Course> courses_Set = new LinkedHashSet<>();
-
+        
+        courses_Set.add(new Course("5CEP", "Copyright and Ethics", 300.00));
         courses_Set.add(new Course("4JAB", "Java Basic", 600.00));
         courses_Set.add(new Course("4C#B", "C-Sharp Basic", 600.00));
         courses_Set.add(new Course("4HTML", "Web-page Design", 450.00));
-        courses_Set.add(new Course("5CEP", "Copyright and Ethics", 300.00));
-
+        
+        
         System.out.println("\nCourse name SET unsorted");
         for (Course course : courses_Set) {
-            System.out.println(course.getCourseName());
+            System.out.println(course.getCourseCode());
         }
-        //TODO
 
-        List<Course> courseList = new LinkedList(courses_Set);
-
+        List<Course>courseList;
+        courseList = new LinkedList<>();
+        
+        for (Course item : courses_Set) {
+            courseList.add(item);
+        }
+        
         Collections.sort(courseList);
-
-        courses_Set = new LinkedHashSet<>(courseList);
-
-//TODO
-
-        System.out.println("\nCourse Code SET sorted");
-        for (Course course : courses_Set) {
-            System.out.println(course.getCourseName());
+        
+        courses_Set = new LinkedHashSet<>();
+        for (Course item : courseList) {
+            courses_Set.add(item);
         }
-
+        
+        System.out.println("\nCourse Code SET sorted by Code");
+        for (Course course : courses_Set) {
+            System.out.println(course.getCourseCode());
+        }
+        
         String message = "\n\nComment:: seriously there no support for HashSets Sorting? \n"
                 + "        I need to turn it into a list that I already proved works and \n"
                 + "         Then Sort IT (OMG) && (LMAO) hehehe,"
                 + "        turn it back into a HashSet??\n"
                 + "        \n"
-                + "         I am so done proving the obvious";
-
+                + "         I am so done proving the obvious"
+                + "         \n it is alot of work since it is unsupported";
+        
         System.out.println(message);
     }
 }

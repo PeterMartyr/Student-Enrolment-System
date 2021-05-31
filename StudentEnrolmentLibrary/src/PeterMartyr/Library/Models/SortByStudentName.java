@@ -24,6 +24,6 @@ public class SortByStudentName implements Comparator<Student>{
      */
     public int compare(Student x, Student y)
     {
-        return x.getName().compareToIgnoreCase(y.getName());
+        return x.getName().toUpperCase().compareTo(y.getName().toUpperCase());
     } 
 }

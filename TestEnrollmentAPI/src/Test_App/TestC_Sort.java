@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package App;
+package Test_App;
 
 import PeterMartyr.Library.Models.Course;
 import PeterMartyr.Library.Models.Enrollment;
 import PeterMartyr.Library.Models.Sort;
 import PeterMartyr.Library.Models.Student;
-import TestData.TestStub;
+import Test_Stub.TestStub;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author 001091501
  */
-public class TestC_API_Sort {
+public class TestC_Sort {
 
     /**
      * @param args the command line arguments

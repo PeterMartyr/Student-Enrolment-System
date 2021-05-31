@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package TestData;
+package Test_Stub;
 
 import PeterMartyr.Library.Models.Course;
 import PeterMartyr.Library.Models.Enrollment;

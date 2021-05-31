@@ -7,9 +7,9 @@ package PeterMartyr.Library.Models;
 
 /**
  *
- * @author Claudio Pietromartire
+ * @author PeterMartyr
  */
-public class SinglyLinkedList<T> {
+public class DoublyLinkedList<T> {
 
     private Node<T> head;
     private Node<T> tail;
@@ -22,10 +22,6 @@ public class SinglyLinkedList<T> {
         return tail;
     }
 
-    /**
-     *
-     * @return the size of the List
-     */
     public int getSize() {
 
         int count = 0;
@@ -37,18 +33,16 @@ public class SinglyLinkedList<T> {
         return count;
     }
 
-    /**
-     * addNode() will add a new node to the list
-     *
-     * @param item to add to the List
-     */
     public void addNode(T item) {
-        Node node = new Node(item);
 
+        Node node = new Node(item);
         if (head == null) {
-            head = node;
+            head = node; // no nodes
         } else {
             tail.next = node;
+            // Before Head -> <-> 5 -> null
+            // After: Head -> 3 <-> 5 <-> 7 -> null
+            node.previous = tail;
         }
         tail = node;
     }
@@ -81,71 +75,64 @@ public class SinglyLinkedList<T> {
 //        Node<T> current = head;
 //        while (current != null) {
 //            if (current.value.equals(item)) {
-//
 //                return current.value;
 //            }
 //            current = current.next;
 //        }
 //        return null;
 //    }
-
-    /**
-     * Given a reference (pointer to pointer) to the head of a list and a
-     * position, deletes the node at the given position
-     *
-     * @param position the index spot in the list to deleted
-     */
     public void deleteNode(int position) {
-        // Store head node
-        Node temp = head, prev = null;
 
-        int size = getSize();
-        if (size < position || head == null) {
+        if (getSize() < position) {
             return;
         }
 
-        if (temp != null && size == position) {
-            head = temp.next;
+        if (head == null) {
             return;
-        }
+        } else {
+            Node current = head;
 
-        int index = 1;
-        while (temp != null && index < position) {
-            prev = temp;
-            temp = temp.next;
-            index++;
-        }
+            for (int i = 1; i < position; i++) {
+                current = current.next;
+            }
 
-        if (temp == null) {
-            return;
+            if (current == head) {
+                head = current.next;
+            } else if (current == tail) {
+                tail = tail.previous;
+            } else {
+                current.previous.next = current.next;
+                current.next.previous = current.previous;
+            }
+            current = null;
         }
-
-        prev.next = temp.next;
     }
 
-    //This function will add the new node at the middle of the list.  
+    //addInMid() will add a node to the middle of the list  
     public void insertNode(int position, T item) {
 
-        if (getSize() <= position || head == null) {
+        if (getSize() <= position) {
             return;
         }
         Node node = new Node(item);
-        if (head == null) {
-            head = node;
-            tail = node;
+        if (head == null) { 
+            head = tail = node;
+            head.previous = null;
+            tail.next = null;
         } else {
-            Node temp, current;
-
-            temp = head;
-            current = null;
-
+            Node current = head, temp = null;
+ 
             for (int i = 1; i < position; i++) {
-                current = temp;
-                temp = temp.next;
+                current = current.next;
             }
+ 
+            temp = current.next;
+            temp.previous = current;
 
             current.next = node;
+            node.previous = current;
             node.next = temp;
+            temp.previous = node;
         }
     }
 
@@ -162,6 +149,22 @@ public class SinglyLinkedList<T> {
             }
             node = node.next;
             index++;
+        }
+    }
+
+    public void addNodeEX(Object item) {
+
+        Node<T> node = new Node(item);
+        if (head == null) {
+            head = node;
+            tail = node;
+            head.previous = null;
+            tail.next = null;
+        } else {  
+            head.previous = node;
+            node.next = head;
+            node.previous = null;
+            head = node;
         }
     }
 }
