@@ -9,15 +9,17 @@ package PeterMartyr.Library.Models;
  *
  * @author Claudio Pietromartire
  */
-public class SinglyLinkedList<T> {
+public class SinglyLinkedList<T> implements LinkedListEX<T> {
 
     private Node<T> head;
     private Node<T> tail;
 
+    @Override
     public Node<T> getHead() {
         return head;
     }
 
+    @Override
     public Node<T> getTail() {
         return tail;
     }
@@ -26,6 +28,7 @@ public class SinglyLinkedList<T> {
      *
      * @return the size of the List
      */
+    @Override
     public int getSize() {
 
         int count = 0;
@@ -38,11 +41,12 @@ public class SinglyLinkedList<T> {
     }
 
     /**
-     * addNode() will add a new node to the list
+     * addNodeAtEnd() will add a new node to the list
      *
      * @param item to add to the List
      */
-    public void addNode(T item) {
+    @Override
+    public void addNodeAtEnd(T item) {
         Node node = new Node(item);
 
         if (head == null) {
@@ -53,6 +57,7 @@ public class SinglyLinkedList<T> {
         tail = node;
     }
 
+    @Override
     public boolean contains(T item) {
         Node<T> current = head;
         while (current != null) {
@@ -64,6 +69,7 @@ public class SinglyLinkedList<T> {
         return false;
     }
 
+    @Override
     public T getAt(int pos) {
         Node<T> current = head;
         int index = 1;
@@ -77,17 +83,19 @@ public class SinglyLinkedList<T> {
         return null;
     }
 
-//    public T getItem(T item) {
-//        Node<T> current = head;
-//        while (current != null) {
-//            if (current.value.equals(item)) {
-//
-//                return current.value;
-//            }
-//            current = current.next;
-//        }
-//        return null;
-//    }
+    @Override
+    public int getPosition(T item) {
+        Node<T> current = head;
+        int index = 1;
+        while (current != null) {
+            if (current.value.equals(item)) {
+                return index;
+            }
+            current = current.next;
+            index++;
+        }
+        return -1;
+    }
 
     /**
      * Given a reference (pointer to pointer) to the head of a list and a
@@ -95,7 +103,8 @@ public class SinglyLinkedList<T> {
      *
      * @param position the index spot in the list to deleted
      */
-    public void deleteNode(int position) {
+    @Override
+    public void deleteNodeAt(int position) {
         // Store head node
         Node temp = head, prev = null;
 
@@ -124,7 +133,8 @@ public class SinglyLinkedList<T> {
     }
 
     //This function will add the new node at the middle of the list.  
-    public void insertNode(int position, T item) {
+    @Override
+    public void insertNodeAt(int position, T item) {
 
         if (getSize() <= position || head == null) {
             return;
@@ -149,6 +159,7 @@ public class SinglyLinkedList<T> {
         }
     }
 
+    @Override
     public void insertValueAt(int position, T item) {
 
         if (getSize() < position || head == null) {
@@ -162,6 +173,21 @@ public class SinglyLinkedList<T> {
             }
             node = node.next;
             index++;
+        }
+    }
+
+    @Override
+    public void addNodeAtStart(T item) {
+
+        Node node = new Node(item);
+
+        if (head == null) {
+            head = node;
+            tail = node;
+        } else {
+            Node temp = head;
+            head = node;
+            head.next = temp;
         }
     }
 }

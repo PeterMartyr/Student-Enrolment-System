@@ -7,9 +7,9 @@ package PeterMartyr.Library.Models;
 
 /**
  *
- * @author PeterMartyr
+ * @author Claudio Pietromartire
  */
-public class DoublyLinkedList<T> {
+public class DoublyLinkedList<T> implements LinkedListEX<T> {
 
     private Node<T> head;
     private Node<T> tail;
@@ -22,6 +22,7 @@ public class DoublyLinkedList<T> {
         return tail;
     }
 
+    @Override
     public int getSize() {
 
         int count = 0;
@@ -33,7 +34,8 @@ public class DoublyLinkedList<T> {
         return count;
     }
 
-    public void addNode(T item) {
+    @Override
+    public void addNodeAtEnd(T item) {
 
         Node node = new Node(item);
         if (head == null) {
@@ -47,6 +49,7 @@ public class DoublyLinkedList<T> {
         tail = node;
     }
 
+    @Override
     public boolean contains(T item) {
         Node<T> current = head;
         while (current != null) {
@@ -58,6 +61,7 @@ public class DoublyLinkedList<T> {
         return false;
     }
 
+    @Override
     public T getAt(int pos) {
         Node<T> current = head;
         int index = 1;
@@ -71,17 +75,22 @@ public class DoublyLinkedList<T> {
         return null;
     }
 
-//    public T getItem(T item) {
-//        Node<T> current = head;
-//        while (current != null) {
-//            if (current.value.equals(item)) {
-//                return current.value;
-//            }
-//            current = current.next;
-//        }
-//        return null;
-//    }
-    public void deleteNode(int position) {
+    @Override
+    public int getPosition(T item) {
+        Node<T> current = head;
+        int index = 1;
+        while (current != null) {
+            if (current.value.equals(item)) {
+                return index;
+            }
+            current = current.next;
+            index++;
+        }
+        return -1;
+    }
+
+    @Override
+    public void deleteNodeAt(int position) {
 
         if (getSize() < position) {
             return;
@@ -109,23 +118,24 @@ public class DoublyLinkedList<T> {
     }
 
     //addInMid() will add a node to the middle of the list  
-    public void insertNode(int position, T item) {
+    @Override
+    public void insertNodeAt(int position, T item) {
 
         if (getSize() <= position) {
             return;
         }
         Node node = new Node(item);
-        if (head == null) { 
+        if (head == null) {
             head = tail = node;
             head.previous = null;
             tail.next = null;
         } else {
             Node current = head, temp = null;
- 
+
             for (int i = 1; i < position; i++) {
                 current = current.next;
             }
- 
+
             temp = current.next;
             temp.previous = current;
 
@@ -136,6 +146,7 @@ public class DoublyLinkedList<T> {
         }
     }
 
+    @Override
     public void insertValueAt(int position, T item) {
 
         if (getSize() < position || head == null) {
@@ -152,7 +163,8 @@ public class DoublyLinkedList<T> {
         }
     }
 
-    public void addNodeEX(Object item) {
+    @Override
+    public void addNodeAtStart(Object item) {
 
         Node<T> node = new Node(item);
         if (head == null) {
@@ -160,7 +172,7 @@ public class DoublyLinkedList<T> {
             tail = node;
             head.previous = null;
             tail.next = null;
-        } else {  
+        } else {
             head.previous = node;
             node.next = head;
             node.previous = null;

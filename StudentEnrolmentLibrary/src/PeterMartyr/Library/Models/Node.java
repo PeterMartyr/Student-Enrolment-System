@@ -7,7 +7,7 @@ package PeterMartyr.Library.Models;
 
 /**
  *
- * @author PeterMartyr
+ * @author Claudio Pietromartire
  */
 public class Node<T> {
 

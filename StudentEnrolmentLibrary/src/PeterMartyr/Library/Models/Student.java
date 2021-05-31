@@ -5,9 +5,8 @@
  */
 package PeterMartyr.Library.Models;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
@@ -34,7 +33,7 @@ public class Student extends Person implements Comparable<Student> {
         this.studentID = ++numberOfStudents;
         this.program = program;
         this.dateRegistered = dateRegistered;
-        enrollments = new ArrayList();
+        enrollments = new LinkedList();
     }
 
     public Student() {
@@ -122,7 +121,9 @@ public class Student extends Person implements Comparable<Student> {
      */
     @Override
     public String toString() {
-        return "Student{" + "studentID=" + studentID + ", program=" + program + ", dateRegistered=" + dateRegistered + ", enrollments=" + enrollments + '}';
+        return "Student{" + "studentID=" + studentID + ", program=" + program +
+                ", dateRegistered=" + dateRegistered + ", enrollments=" + 
+                enrollments + '}';
     }
 
     /**

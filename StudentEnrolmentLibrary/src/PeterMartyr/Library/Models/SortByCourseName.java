@@ -5,25 +5,23 @@
  */
 package PeterMartyr.Library.Models;
 
-import PeterMartyr.Library.Models.Course;
 import java.util.Comparator;
 
 /**
  *
  * @author Claudio Pietromartire
  */
-public class SortByCourseName implements Comparator<Course>{
-    
+public class SortByCourseName implements Comparator<Course> {
+
     /**
-     * 
+     *
      * @param x first course to compare
      * @param y second course to compare
-     * @return  less than Zero if X is alpha less than Y
-     *          or return greater than Zero if X is alpha greater than Y
-     *          or returns a Zero if they are equal.
+     * @return less than Zero if X is alpha less than Y or return greater than
+     * Zero if X is alpha greater than Y or returns a Zero if they are equal.
      */
-    public int compare(Course x, Course y)
-    {
+    @Override
+    public int compare(Course x, Course y) {
         return x.getCourseName().toUpperCase().compareTo(y.getCourseName().toUpperCase());
-    } 
+    }
 }

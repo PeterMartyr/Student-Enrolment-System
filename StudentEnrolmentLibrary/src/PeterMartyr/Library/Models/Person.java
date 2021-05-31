@@ -5,7 +5,7 @@
  */
 package PeterMartyr.Library.Models;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
@@ -26,7 +26,7 @@ public class Person {
         this.name = name;
         this.email = email;
         this.telNum = telNum;
-        this.addresses = new ArrayList();
+        this.addresses = new LinkedList();
     }
 
     public Person() {
