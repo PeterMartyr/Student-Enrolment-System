@@ -9,7 +9,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Claudio Pietromartire
+ * @author PeterMartyr
  */
 public class Address {
 
@@ -39,7 +39,7 @@ public class Address {
     }
 
     /**
-     * the no argument constructor
+     * The no argument constructor
      */
     public Address() {
         this(BLANK_STRING, BLANK_STRING, BLANK_STRING, BLANK_STRING, BLANK_STRING);

@@ -35,6 +35,15 @@ public class TestC_Sort {
         List<Enrollment> enrollments = testStub.getEnrollments(0);
 
         Sort sort = new Sort();
+        
+        System.out.println("===================================================");
+        System.out.println("Students Unordered List");
+        System.out.println("===================================================");
+        printStudent(students);
+        System.out.println("\nSorted by ID ascending ===========================\n");
+        sort.sortStudentByID(students);
+        printStudentID(students);
+        System.out.println("\n===================================================\n\n");
 
         System.out.println("===================================================");
         System.out.println("Students Unordered List");
@@ -63,6 +72,13 @@ public class TestC_Sort {
         printEnrollment(enrollments);
         System.out.println("\n===================================================\n\n");
 
+    }
+    
+    
+     private static void printStudentID(List<Student> students) {
+        for (Student item : students) {
+            System.out.println(item.getStudentID() + " " + item.getName());
+        }
     }
 
     private static void printStudent(List<Student> students) {

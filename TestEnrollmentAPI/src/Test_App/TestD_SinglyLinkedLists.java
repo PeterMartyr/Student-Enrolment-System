@@ -52,13 +52,13 @@ public class TestD_SinglyLinkedLists {
 
         System.out.println("\nDelete John Smith and check he Gone");
   
-        students.deleteNode(2);
+        students.deleteNodeAt(2);
      
         System.out.println("Is John Smith in the list? = " + students.contains(jon));
              
         System.out.println("\nInsert John Smith back at Number 3 then print names");
 
-        students.insertNode(3, jon);
+        students.insertNodeAt(3, jon);
 
         node = students.getHead();
         while (node != null) {
@@ -79,6 +79,16 @@ public class TestD_SinglyLinkedLists {
         } 
         
         System.out.println("\nNote this sadly does not spin backwards");
+        
+         System.out.println("\nAdd Multiple at once to start of list? ");
+        
+        testStub.addExtra(students);
+        
+        node = students.getHead();
+        while (node != null) {
+            System.out.println(((Student) node.getValue()).getName());
+            node = node.getNext();
+        } 
     }
 
     private static Date convertStringtoDate(String ddMMyyyy) {

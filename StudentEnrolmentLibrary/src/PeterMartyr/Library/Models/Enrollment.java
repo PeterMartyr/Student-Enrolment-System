@@ -5,16 +5,15 @@
  */
 package PeterMartyr.Library.Models;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 
 import java.util.List;
 import java.util.Objects;
 
 /**
  *
- * @author Claudio Pietromartire
+ * @author PeterMartyr
  */
 public class Enrollment implements Comparable<Enrollment> {
 
@@ -26,54 +25,100 @@ public class Enrollment implements Comparable<Enrollment> {
     private String semster;
     private List<Course> courses;
 
+    /**
+     * the all argument constructor
+     *
+     * @param semster which half of year the enrollment covers
+     * @param dateEnrolled The commencement date at the beginning of
+     * qualification
+     */
     public Enrollment(String semster, Date dateEnrolled) {
         super();
         this.dateEnrolled = dateEnrolled;
         this.grade = BLANK_STRING;
         this.semster = semster;
-        this.courses = new ArrayList();
+        this.courses = new LinkedList();
     }
 
+    /**
+     * The no argument constructor
+     */
     public Enrollment() {
         this(BLANK_STRING, new Date(System.currentTimeMillis()));
     }
 
+    /**
+     *
+     * @param course The single course to add to this Semester enrollments
+     */
     public void addCourse(Course course) {
         courses.add(course);
     }
 
-    public void addCourses(List<Course> courses) {
-        for (Course course : courses) {
-            this.courses.add(course);
-        }
-    }
-
+    /**
+     *
+     * @return The the date enrolled for the qualification
+     */
     public Date getDateEnrolled() {
         return dateEnrolled;
     }
 
+    /**
+     *
+     * @param dateEnrolled The the date enrolled for the qualification
+     */
     public void setDateEnrolled(Date dateEnrolled) {
         this.dateEnrolled = dateEnrolled;
     }
 
+    /**
+     *
+     * @return Whether the Student passed for the Semester??
+     */
     public String getGrade() {
         return grade;
     }
 
+    /**
+     *
+     * @param grade Sets Whether the Student passed for the Semester??
+     */
     public void setGrade(String grade) {
         this.grade = grade;
     }
 
+    /**
+     *
+     * @return First or Second Semester
+     */
     public String getSemster() {
         return semster;
     }
 
+    /**
+     *
+     * @param semster takes only First or Second Semester
+     */
     public void setSemster(String semster) {
         this.semster = semster;
     }
 
+    /**
+     *
+     * @return a List of Courses for this Semester enrollments
+     */
     public List<Course> getCourses() {
         return courses;
+    }
+
+    /**
+     *
+     * @param courses Adds a List of Courses for this Semester enrollments
+     */
+    public void addCourses(List<Course> courses) {
+        for (Course course : courses) {
+            this.courses.add(course);
+        }
     }
 
     /**

@@ -9,7 +9,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Claudio Pietromartire
+ * @author PeterMartyr
  */
 public class Course implements Comparable<Course> {
 
@@ -22,7 +22,7 @@ public class Course implements Comparable<Course> {
 
     /**
      * the all argument constructor
-     * 
+     *
      * @param courseCode alphabetic code for the course
      * @param courseName alphabetic name for the course
      * @param cost the monetary value of taking the course
@@ -33,30 +33,58 @@ public class Course implements Comparable<Course> {
         this.cost = cost;
     }
 
+    /**
+     * The no argument constructor
+     */
     public Course() {
         this(BLANK_STRING, BLANK_STRING, ZERO_DOUBLE);
     }
 
+    /**
+     *
+     * @return a alphabetic code for course usually an abbv. of the name
+     */
     public String getCourseCode() {
         return courseCode;
     }
 
+    /**
+     *
+     * @param courseCode a alphabetic code for course usually an abbv. of the
+     * name
+     */
     public void setCourseCode(String courseCode) {
         this.courseCode = courseCode;
     }
 
+    /**
+     *
+     * @return The name of the course
+     */
     public String getCourseName() {
         return courseName;
     }
 
+    /**
+     *
+     * @param courseName The name of the course
+     */
     public void setCourseName(String courseName) {
         this.courseName = courseName;
     }
 
+    /**
+     *
+     * @return the cost of the Course ex: 599.99
+     */
     public double getCost() {
         return cost;
     }
 
+    /**
+     *
+     * @param cost the cost of the Course ex: 599.99
+     */
     public void setCost(double cost) {
         this.cost = cost;
     }

@@ -11,23 +11,40 @@ package PeterMartyr.Library.Models;
  */
 public class Node<T> {
 
-        public T value;
-        public Node next;
-        public Node previous;
+    public T value;
+    public Node next;
+    public Node previous;
 
-        public Node(T value) {
-            this.value = value;
-        }
+    /**
+     * * the all argument constructor (for this)
+     *
+     * @param value
+     */
+    public Node(T value) {
+        this.value = value;
+    }
 
-        public T getValue() {
-            return value;
-        }
+    /**
+     *
+     * @return the value of the object stored in the node
+     */
+    public T getValue() {
+        return value;
+    }
 
-        public Node getNext() {
-            return next;
-        }
+    /**
+     *
+     * @return the node in front of node calling it
+     */
+    public Node getNext() {
+        return next;
+    }
 
-        public Node getPrevious() {
-            return previous;
-        }
+    /**
+     *
+     * @return  the node in behind the node calling it
+     */
+    public Node getPrevious() {
+        return previous;
+    }
 }

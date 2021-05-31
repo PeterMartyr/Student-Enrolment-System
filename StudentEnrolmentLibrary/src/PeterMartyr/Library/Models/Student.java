@@ -5,15 +5,14 @@
  */
 package PeterMartyr.Library.Models;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
 /**
  *
- * @author Claudio Pietromartire
+ * @author PeterMartyr
  */
 public class Student extends Person implements Comparable<Student> {
 
@@ -28,51 +27,104 @@ public class Student extends Person implements Comparable<Student> {
     private Date dateRegistered;
     private List<Enrollment> enrollments;
 
+    /**
+     * The all argument constructor
+     *
+     * @param program The Primary Qualification FYI diploma
+     * @param dateRegistered The date the student first started at the institution
+     * @param name Both First and Last Name
+     * @param email An Email Address
+     * @param telNum Primary Phone Contact Number
+     */
     public Student(String program, Date dateRegistered,
             String name, String email, String telNum) {
         super(name, email, telNum);
         this.studentID = ++numberOfStudents;
         this.program = program;
         this.dateRegistered = dateRegistered;
-        enrollments = new ArrayList();
+        enrollments = new LinkedList();
     }
 
+    /**
+     * The no argument constructor
+     */
     public Student() {
         this(DEFAULT_TEXT, new Date(System.currentTimeMillis()), DEFAULT_TEXT, DEFAULT_TEXT, DEFAULT_TEXT);
     }
 
+    /**
+     * Add an enrollment for the Semester
+     *
+     * @param semster which half of year the enrollment covers
+     * @param dateEnrolled The commencement date at the beginning of
+     * qualification
+     */
     public void addEnrollment(String semster, Date dateEnrolled) {
         enrollments.add(new Enrollment(semster, dateEnrolled));
     }
 
+    /**
+     *
+     * @return a numerical identification number
+     */
     public int getStudentID() {
         return studentID;
     }
 
+    /**
+     * the ID is auto increment use with care
+     *
+     * @param studentID a numerical identification number
+     */
     public void setStudentID(int studentID) {
         this.studentID = studentID;
     }
 
+    /**
+     *
+     * @return the Primary Qualification FYI diploma
+     */
     public String getProgram() {
         return program;
     }
 
+    /**
+     *
+     * @param program set the Primary Qualification FYI diploma
+     */
     public void setProgram(String program) {
         this.program = program;
     }
 
+    /**
+     *
+     * @return the date the student first started at the institution
+     */
     public Date getDateRegistered() {
         return dateRegistered;
     }
 
+    /**
+     *
+     * @param dateRegistered the date the student first started at the
+     * institution
+     */
     public void setDateRegistered(Date dateRegistered) {
         this.dateRegistered = dateRegistered;
     }
 
+    /**
+     *
+     * @return a list of Enrollments
+     */
     public List<Enrollment> getEnrollments() {
         return enrollments;
     }
 
+    /**
+     *
+     * @param enrollments sets a list of Enrollments FYI priors
+     */
     public void setEnrollments(List<Enrollment> enrollments) {
         this.enrollments = enrollments;
     }
@@ -122,15 +174,17 @@ public class Student extends Person implements Comparable<Student> {
      */
     @Override
     public String toString() {
-        return "Student{" + "studentID=" + studentID + ", program=" + program + ", dateRegistered=" + dateRegistered + ", enrollments=" + enrollments + '}';
+        return "Student{" + "studentID=" + studentID + ", program=" + program
+                + ", dateRegistered=" + dateRegistered + ", enrollments="
+                + enrollments + '}';
     }
 
     /**
      *
      * @param other the object to compare
-     * @return  If the object is equal to the argument then 0 is returned. 
-     *          If the object is less than the argument then -1 is returned. 
-     *          If the object is greater than the argument then 1 is returned.
+     * @return If the object is equal to the argument then 0 is returned. If the
+     * object is less than the argument then -1 is returned. If the object is
+     * greater than the argument then 1 is returned.
      */
     @Override
     public int compareTo(Student other) {

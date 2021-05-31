@@ -1,7 +1,5 @@
 package PeterMartyr.Library.Models;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -12,7 +10,7 @@ import java.util.List;
  */
 /**
  *
- * @author Claudio Pietromartire
+ * @author PeterMartyr
  */
 public class Search {
 
@@ -41,7 +39,7 @@ public class Search {
      */
     public Course getCourseByCode(List<Course> courses, String courseCode) {
 
-        courseCode = courseCode;//.toUpperCase();
+        courseCode = courseCode.toUpperCase();
         for (Course course : courses) {
             if (courseCode.equals(course.getCourseCode().toUpperCase())) {
                 return course;

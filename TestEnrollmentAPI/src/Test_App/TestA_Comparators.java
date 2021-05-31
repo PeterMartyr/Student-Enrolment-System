@@ -134,7 +134,7 @@ public class TestA_Comparators {
         String message = "\n\nComment:: seriously there no support for HashSets Sorting? \n"
                 + "        I need to turn it into a list that I already proved works and \n"
                 + "         Then Sort IT (OMG) && (LMAO) hehehe,"
-                + "        turn it back into a HashSet??\n"
+                + "        then turn it back into a HashSet??\n"
                 + "        \n"
                 + "         I am so done proving the obvious"
                 + "         \n it is alot of work since it is unsupported";

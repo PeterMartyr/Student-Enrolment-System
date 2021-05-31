@@ -5,15 +5,28 @@
  */
 package PeterMartyr.Library.Models;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  *
- * @author Claudio Pietromartire
+ * @author PeterMartyr
  */
 public class Sort {
+    
+    
+    public void sortStudentByID(List<Student> students) {
+        
+        Student temp;
+        for (int j = 0; j <= students.size() - 2; j++) {
+            for (int i = 0; i <= students.size() - 2; i++) {
+                if (students.get(i).getStudentID() > students.get(i + 1).getStudentID()) {
+                    temp = students.get(i + 1);
+                    students.set(i + 1, students.get(i));
+                    students.set(i, temp);
+                }
+            }
+        }
+    }
     
     /**
      * does not duplicate the List to save memory but sorts the 
