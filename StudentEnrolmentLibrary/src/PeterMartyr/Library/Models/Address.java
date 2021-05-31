@@ -9,7 +9,7 @@ import java.util.Objects;
 
 /**
  *
- * @author 001091501
+ * @author Claudio Pietromartire
  */
 public class Address {
 
@@ -22,12 +22,13 @@ public class Address {
     private String state;
 
     /**
+     * the all argument constructor
      *
-     * @param number
-     * @param street
-     * @param suburb
-     * @param postcode
-     * @param state
+     * @param number number of the building
+     * @param street Name of the Road the building is located on
+     * @param suburb an outlying district of a city, the street is located in
+     * @param postcode a numerical ID for a suburb
+     * @param state a region in a country
      */
     public Address(String number, String street, String suburb, String postcode, String state) {
         this.number = number;
@@ -38,56 +39,98 @@ public class Address {
     }
 
     /**
-     *
+     * the no argument constructor
      */
     public Address() {
         this(BLANK_STRING, BLANK_STRING, BLANK_STRING, BLANK_STRING, BLANK_STRING);
     }
 
+    /**
+     *
+     * @return the number of the residence
+     */
     public String getNumber() {
         return number;
     }
 
+    /**
+     *
+     * @param number set the number of the residence
+     */
     public void setNumber(String number) {
         this.number = number;
     }
 
+    /**
+     *
+     * @return the name of the street of the building
+     */
     public String getStreet() {
         return street;
     }
 
+    /**
+     * set the name of street of the building
+     *
+     * @param street
+     */
     public void setStreet(String street) {
         this.street = street;
     }
 
+    /**
+     *
+     * @return the district name of the location
+     */
     public String getSuburb() {
         return suburb;
     }
 
+    /**
+     *
+     * @param suburb set the district name of the location
+     */
     public void setSuburb(String suburb) {
         this.suburb = suburb;
     }
 
+    /**
+     *
+     * @return the numerical ID for the suburb
+     */
     public String getPostcode() {
         return postcode;
     }
 
+    /**
+     *
+     * @param postcode set the numerical ID for suburb
+     */
     public void setPostcode(String postcode) {
         this.postcode = postcode;
     }
 
+    /**
+     *
+     * @return the region of the residence location
+     */
     public String getState() {
         return state;
     }
 
     /**
      *
-     * @param state
+     * @param state sets region of the residence location
      */
     public void setState(String state) {
         this.state = state;
     }
 
+    /**
+     *
+     * @return a hash code value for the object. This method is supported for
+     * the benefit of hash tables such as those provided by HashMap.
+     */
     @Override
     public int hashCode() {
         int hash = 7;
@@ -101,10 +144,10 @@ public class Address {
 
     /**
      *
-     * @param obj to compare
-     * @return true or false
+     * @param obj the reference object with which to compare.
+     * @return true if this object is the same as the obj argument; false
+     * otherwise.
      */
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -137,7 +180,7 @@ public class Address {
 
     /**
      *
-     * @return a descriptive string of the object
+     * @return a string representation of the object.
      */
     @Override
     public String toString() {

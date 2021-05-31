@@ -12,15 +12,15 @@ import java.util.List;
  */
 /**
  *
- * @author 001091501
+ * @author Claudio Pietromartire
  */
 public class Search {
 
     /**
      *
-     * @param students
-     * @param studentID
-     * @return
+     * @param students the List to do linear search on
+     * @param studentID the item to search for
+     * @return a Student object
      */
     public Student getStudentbyID(List<Student> students, int studentID) {
 
@@ -35,9 +35,9 @@ public class Search {
 
     /**
      *
-     * @param courses
-     * @param courseCode
-     * @return
+     * @param courses the List to do linear search on
+     * @param courseCode the item to search for
+     * @return a Course object
      */
     public Course getCourseByCode(List<Course> courses, String courseCode) {
 
@@ -52,9 +52,9 @@ public class Search {
 
     /**
      *
-     * @param courses
-     * @param courseCode
-     * @return
+     * @param courses the List to do linear search on
+     * @param courseCode the item to search for
+     * @return a Course object
      */
     public Course getCourseByCodeBinary(List<Course> courses, String courseCode) {
 

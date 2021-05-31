@@ -124,36 +124,39 @@ public class TestA_API_Comparators {
         System.out.println("HashSets ===============");
         System.out.println("========================");
 
-//        HashSet<Course> courses_Set = new LinkedHashSet<>();
-//
-//        courses_Set.add(new Course("4JAB", "Java Basic", 600.00));
-//        courses_Set.add(new Course("4C#B", "C-Sharp Basic", 600.00));
-//        courses_Set.add(new Course("4HTML", "Web-page Design", 450.00));
-//        courses_Set.add(new Course("5CEP", "Copyright and Ethics", 300.00));
-//
-//        System.out.println("\nCourse name SET unsorted");
-//        for (Course course : courses_Set) {
-//            System.out.println(course.getCourseName());
-//        }
-//
-//        List<Course> courseList = new LinkedList(courses_Set);
-//
-//        Collections.sort(courseList);
-//
-//        courses_Set = new LinkedHashSet<>(courseList);
-//
-//        System.out.println("\nCourse Code SET sorted");
-//        for (Course course : courses_Set) {
-//            System.out.println(course.getCourseName());
-//        }
-//
-//        String message = "\n\nComment:: seriously there no support for HashSets Sorting? \n"
-//                + "        I need to turn it into a list that I already proved works and \n"
-//                + "         Then Sort IT (OMG) && (LMAO) hehehe,"
-//                + "        turn it back into a HashSet??\n"
-//                + "        \n"
-//                + "         I am so done proving the obvious";
-//
-//        System.out.println(message);
+        HashSet<Course> courses_Set = new LinkedHashSet<>();
+
+        courses_Set.add(new Course("4JAB", "Java Basic", 600.00));
+        courses_Set.add(new Course("4C#B", "C-Sharp Basic", 600.00));
+        courses_Set.add(new Course("4HTML", "Web-page Design", 450.00));
+        courses_Set.add(new Course("5CEP", "Copyright and Ethics", 300.00));
+
+        System.out.println("\nCourse name SET unsorted");
+        for (Course course : courses_Set) {
+            System.out.println(course.getCourseName());
+        }
+        //TODO
+
+        List<Course> courseList = new LinkedList(courses_Set);
+
+        Collections.sort(courseList);
+
+        courses_Set = new LinkedHashSet<>(courseList);
+
+//TODO
+
+        System.out.println("\nCourse Code SET sorted");
+        for (Course course : courses_Set) {
+            System.out.println(course.getCourseName());
+        }
+
+        String message = "\n\nComment:: seriously there no support for HashSets Sorting? \n"
+                + "        I need to turn it into a list that I already proved works and \n"
+                + "         Then Sort IT (OMG) && (LMAO) hehehe,"
+                + "        turn it back into a HashSet??\n"
+                + "        \n"
+                + "         I am so done proving the obvious";
+
+        System.out.println(message);
     }
 }

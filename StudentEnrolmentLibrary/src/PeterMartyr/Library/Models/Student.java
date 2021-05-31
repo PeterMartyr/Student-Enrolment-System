@@ -13,13 +13,12 @@ import java.util.Objects;
 
 /**
  *
- * @author 001091501
+ * @author Claudio Pietromartire
  */
 public class Student extends Person implements Comparable<Student> {
 
     /**
-     * a empty string to use in the no args constructor
-     * to save memory
+     * a empty string to use in the no args constructor to save memory
      */
     public static final String DEFAULT_TEXT = "";
     private static int numberOfStudents = 0;
@@ -29,7 +28,7 @@ public class Student extends Person implements Comparable<Student> {
     private Date dateRegistered;
     private List<Enrollment> enrollments;
 
-    public Student(String program, Date dateRegistered, 
+    public Student(String program, Date dateRegistered,
             String name, String email, String telNum) {
         super(name, email, telNum);
         this.studentID = ++numberOfStudents;
@@ -78,6 +77,11 @@ public class Student extends Person implements Comparable<Student> {
         this.enrollments = enrollments;
     }
 
+    /**
+     *
+     * @return a hash code value for the object. This method is supported for
+     * the benefit of hash tables such as those provided by HashMap.
+     */
     @Override
     public int hashCode() {
         int hash = 7;
@@ -88,6 +92,12 @@ public class Student extends Person implements Comparable<Student> {
         return hash;
     }
 
+    /**
+     *
+     * @param obj the reference object with which to compare.
+     * @return true if this object is the same as the obj argument; false
+     * otherwise.
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -106,11 +116,22 @@ public class Student extends Person implements Comparable<Student> {
         return true;
     }
 
+    /**
+     *
+     * @return a string representation of the object.
+     */
     @Override
     public String toString() {
         return "Student{" + "studentID=" + studentID + ", program=" + program + ", dateRegistered=" + dateRegistered + ", enrollments=" + enrollments + '}';
     }
 
+    /**
+     *
+     * @param other the object to compare
+     * @return  If the object is equal to the argument then 0 is returned. 
+     *          If the object is less than the argument then -1 is returned. 
+     *          If the object is greater than the argument then 1 is returned.
+     */
     @Override
     public int compareTo(Student other) {
         return this.studentID - other.studentID;

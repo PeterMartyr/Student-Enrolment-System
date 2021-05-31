@@ -9,7 +9,7 @@ import java.util.Objects;
 
 /**
  *
- * @author 001091501
+ * @author Claudio Pietromartire
  */
 public class Course implements Comparable<Course> {
 
@@ -20,6 +20,13 @@ public class Course implements Comparable<Course> {
     private String courseName;
     private double cost;
 
+    /**
+     * the all argument constructor
+     * 
+     * @param courseCode alphabetic code for the course
+     * @param courseName alphabetic name for the course
+     * @param cost the monetary value of taking the course
+     */
     public Course(String courseCode, String courseName, double cost) {
         this.courseCode = courseCode;
         this.courseName = courseName;
@@ -54,6 +61,11 @@ public class Course implements Comparable<Course> {
         this.cost = cost;
     }
 
+    /**
+     *
+     * @return a hash code value for the object. This method is supported for
+     * the benefit of hash tables such as those provided by HashMap.
+     */
     @Override
     public int hashCode() {
         int hash = 7;
@@ -63,6 +75,12 @@ public class Course implements Comparable<Course> {
         return hash;
     }
 
+    /**
+     *
+     * @param obj the reference object with which to compare.
+     * @return true if this object is the same as the obj argument; false
+     * otherwise.
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -87,11 +105,22 @@ public class Course implements Comparable<Course> {
         return true;
     }
 
+    /**
+     *
+     * @param other the object to compare
+     * @return If the object is equal to the argument then 0 is returned. If the
+     * object is less than the argument then -1 is returned. If the object is
+     * greater than the argument then 1 is returned.
+     */
     @Override
     public int compareTo(Course other) {
         return this.courseCode.compareToIgnoreCase(other.courseCode);
     }
 
+    /**
+     *
+     * @return a string representation of the object.
+     */
     @Override
     public String toString() {
         return "Course{" + "courseCode=" + courseCode + ", courseName=" + courseName + ", cost=" + cost + '}';

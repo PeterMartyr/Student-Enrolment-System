@@ -10,7 +10,7 @@ import java.util.Comparator;
 
 /**
  *
- * @author PeterMartyr
+ * @author Claudio Pietromartire
  */
 public class SortByCourseName implements Comparator<Course>{
     

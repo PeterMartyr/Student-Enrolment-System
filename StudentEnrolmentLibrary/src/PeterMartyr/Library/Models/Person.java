@@ -11,7 +11,7 @@ import java.util.Objects;
 
 /**
  *
- * @author 001091501
+ * @author Claudio Pietromartire
  */
 public class Person {
 
@@ -32,8 +32,8 @@ public class Person {
     public Person() {
         this(BLANK_STRING, BLANK_STRING, BLANK_STRING);
     }
-    
-    public void addAdress(String number, String street, String suburb, String postcode, String state){
+
+    public void addAdress(String number, String street, String suburb, String postcode, String state) {
         this.addresses.add(new Address(number, street, suburb, postcode, state));
     }
 
@@ -69,6 +69,12 @@ public class Person {
         this.addresses.add(address);
     }
 
+    /**
+     *
+     * @return a hash code value for the object. This method is supported for
+     * the benefit of hash tables such as those provided by HashMap.
+     */
+
     @Override
     public int hashCode() {
         int hash = 5;
@@ -76,6 +82,12 @@ public class Person {
         return hash;
     }
 
+    /**
+     *
+     * @param obj the reference object with which to compare.
+     * @return true if this object is the same as the obj argument; false
+     * otherwise.
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -94,6 +106,10 @@ public class Person {
         return true;
     }
 
+    /**
+     *
+     * @return a string representation of the object.
+     */
     @Override
     public String toString() {
         return "Person{" + "name=" + name + ", email=" + email + ", telNum=" + telNum + ", addresses=" + addresses + '}';

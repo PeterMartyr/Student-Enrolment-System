@@ -14,7 +14,7 @@ import java.util.Objects;
 
 /**
  *
- * @author 001091501
+ * @author Claudio Pietromartire
  */
 public class Enrollment implements Comparable<Enrollment> {
 
@@ -76,6 +76,11 @@ public class Enrollment implements Comparable<Enrollment> {
         return courses;
     }
 
+    /**
+     *
+     * @return a hash code value for the object. This method is supported for
+     * the benefit of hash tables such as those provided by HashMap.
+     */
     @Override
     public int hashCode() {
         int hash = 7;
@@ -86,6 +91,12 @@ public class Enrollment implements Comparable<Enrollment> {
         return hash;
     }
 
+    /**
+     *
+     * @param obj the reference object with which to compare.
+     * @return true if this object is the same as the obj argument; false
+     * otherwise.
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -113,11 +124,22 @@ public class Enrollment implements Comparable<Enrollment> {
         return true;
     }
 
+    /**
+     *
+     * @param other the object to compare
+     * @return If the object is equal to the argument then 0 is returned. If the
+     * object is less than the argument then -1 is returned. If the object is
+     * greater than the argument then 1 is returned.
+     */
     @Override
     public int compareTo(Enrollment other) {
         return this.dateEnrolled.compareTo(other.getDateEnrolled());
     }
 
+    /**
+     *
+     * @return a string representation of the object.
+     */
     @Override
     public String toString() {
         return "Enrollment{" + "dateEnrolled=" + dateEnrolled + ", grade=" + grade + ", semster=" + semster + ", courses=" + courses + '}';
