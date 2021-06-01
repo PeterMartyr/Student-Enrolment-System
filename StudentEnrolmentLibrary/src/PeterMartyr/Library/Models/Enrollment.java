@@ -17,7 +17,14 @@ import java.util.Objects;
  */
 public class Enrollment implements Comparable<Enrollment> {
 
+    /**
+     *
+     */
     public static final String BLANK_STRING = "";
+
+    /**
+     *
+     */
     public static final Course NULL_COURSE = null;
 
     private Date dateEnrolled;

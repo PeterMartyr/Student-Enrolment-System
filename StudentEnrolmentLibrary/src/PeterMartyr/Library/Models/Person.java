@@ -15,6 +15,9 @@ import java.util.Objects;
  */
 public class Person {
 
+    /**
+     *
+     */
     public static final String BLANK_STRING = "";
 
     private String name;

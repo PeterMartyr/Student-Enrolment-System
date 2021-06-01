@@ -13,6 +13,9 @@ import java.util.Objects;
  */
 public class Address {
 
+    /**
+     *
+     */
     public static final String BLANK_STRING = "";
 
     private String number;

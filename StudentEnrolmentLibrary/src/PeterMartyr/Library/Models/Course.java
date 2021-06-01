@@ -13,7 +13,14 @@ import java.util.Objects;
  */
 public class Course implements Comparable<Course> {
 
+    /**
+     *
+     */
     public static final String BLANK_STRING = "";
+
+    /**
+     *
+     */
     public static final double ZERO_DOUBLE = 0.0;
 
     private String courseCode;

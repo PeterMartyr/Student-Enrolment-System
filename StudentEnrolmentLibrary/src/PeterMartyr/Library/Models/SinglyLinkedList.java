@@ -8,6 +8,7 @@ package PeterMartyr.Library.Models;
 /**
  *
  * @author PeterMartyr
+ * @param <T>
  */
 public class SinglyLinkedList<T> implements LinkedListEX<T> {
 

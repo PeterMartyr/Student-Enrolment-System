@@ -8,11 +8,23 @@ package PeterMartyr.Library.Models;
 /**
  *
  * @author PeterMartyr
+ * @param <T>
  */
 public class Node<T> {
 
+    /**
+     *
+     */
     public T value;
+
+    /**
+     *
+     */
     public Node next;
+
+    /**
+     *
+     */
     public Node previous;
 
     /**
