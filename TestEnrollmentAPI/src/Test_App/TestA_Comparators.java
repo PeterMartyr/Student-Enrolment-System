@@ -140,5 +140,28 @@ public class TestA_Comparators {
                 + "         \n it is alot of work since it is unsupported";
         
         System.out.println(message);
+        
+        /*
+         List<Student> students = testStub.getStudents();
+        List<Course> courses = testStub.getCourses();
+        List<Enrollment> enrollments = testStub.getEnrollments(0);
+        */
+        
+        
+        System.out.println("\nGeneric ToString  Student");
+        for (Student ss : students) {
+            System.out.println(ss);
+        }
+        
+         System.out.println("\nGeneric ToString  course");
+        for (Course ss : courses) {
+            System.out.println(ss);
+        }
+        
+          System.out.println("\nGeneric ToString  Enrollments");
+        for (Enrollment ss : enrollments) {
+            System.out.println(ss);
+        }
+        
     }
 }
