@@ -86,7 +86,8 @@ public class EnrollmentTest {
     public void testGetGrade() {
         System.out.println("getGrade");
         Enrollment instance = new Enrollment("Semester 1", convertStringtoDate("01-02-2019"));
-        String expResult = "";
+        instance.setGrade("PASS");
+        String expResult = "PASS";
         String result = instance.getGrade();
         assertEquals(expResult, result);
     }

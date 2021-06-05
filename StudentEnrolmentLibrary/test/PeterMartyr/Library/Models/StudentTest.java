@@ -187,7 +187,7 @@ public class StudentTest {
     public void testToString() {
         System.out.println("toString");
         Student instance = new Student("Software Delevepment", convertStringtoDate("25-02-2012"), "Sue Jone", "SJ@gmail.com", "951478");
-        String expResult = "Student{studentID=1, program=Software Delevepment, dateRegistered=Sat Feb 25 00:00:00 ACDT 2012, enrollments=[]}";
+        String expResult = "Student{studentID=1,xx program=Software Delevepment, dateRegistered=Sat Feb 25 00:00:00 ACDT 2012, enrollments=[]}";
         String result = instance.toString();
         assertEquals(expResult, result);
     }

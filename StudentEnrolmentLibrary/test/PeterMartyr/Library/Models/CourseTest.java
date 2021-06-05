@@ -105,7 +105,7 @@ public class CourseTest {
     @Test
     public void testSetCost() {
         System.out.println("setCost");
-        double cost = 0.0;
+        double cost = 600.0;
         Course instance = new Course();
         instance.setCost(cost);
         double result = instance.getCost();
